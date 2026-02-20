@@ -13,7 +13,7 @@ export const NAV_ITEMS = [
     },
     {
         label: "Check-in",
-        href: "/Check-in",
+        href: "/checkin",
         icon: CheckIcon
     },
     {
