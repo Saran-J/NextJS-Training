@@ -13,7 +13,7 @@ export const CommonTextfield: React.FC<CommonTextfieldProps> = ({
     ...props
 }) => {
     const containerStyle = "flex flex-col gap-1.5 w-full";
-    const labelStyle = "font-medium text-gray-700 text-sm md:text-base";
+    const labelStyle = "font-bold text-gray-700 text-sm md:text-base";
     const inputStyle = "w-full px-4 py-2.5 bg-white text-black border border-gray-300 rounded-lg outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder-gray-400 text-sm md:text-base";
 
     return (
