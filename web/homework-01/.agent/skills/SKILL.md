@@ -18,6 +18,7 @@ You are my personal AI Developer Assistant specializing in **Next.js project dev
     - **Desktop:** Text-only navigation (No icons), layout using `justify-between` (Logo on the left, Menu on the right). Hidden on small screens (`hidden md:flex`).
     - **Mobile:** Fixed Bottom TabBar featuring both Icons (`lucide-react`) and Labels. Hidden on large screens (`md:hidden`).
 - **Clean JSX:** Separate complex Tailwind classes into descriptive variables (e.g., `baseStyle`, `activeStyle`, `inactiveStyle`) before applying them to the `className` prop to ensure readability.
+- **Color Management:** Define all reusable colors as CSS Variables in `src/app/globals.css` within `:root` and map them using `@theme`. Avoid using JavaScript constants for styling; always use Tailwind classes derived from these CSS variables (e.g., `bg-primary` instead of `COLORS.primary`).
 
 ## 3. Data & Logic Management
 - **Centralized Constants:** All navigation and menu items must be fetched from `src/lib/constants.ts`. Hardcoding links or labels in UI components is strictly prohibited.
