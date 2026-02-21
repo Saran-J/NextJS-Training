@@ -4,7 +4,7 @@ import Button from '@/components/common/Button';
 
 export default function BookingForm() {
     return (
-        <div className="flex flex-col gap-6 p-6 rounded-2xl border-1 border-border-secondary bg-white w-full max-w-xl mx-auto mt-8 shadow-lg shadow-[rgba(0,0,0,0.1)]">
+        <div className="flex flex-col gap-6 p-6 rounded-2xl border-1 border-border-secondary bg-white w-full mx-auto mt-8 shadow-lg shadow-[rgba(0,0,0,0.1)]">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 text-center">
                 Retrieve Your Booking
             </h2>

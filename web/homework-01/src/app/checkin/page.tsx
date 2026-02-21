@@ -9,7 +9,7 @@ export default function CheckinPage() {
         <div className="min-h-screen bg-white">
             <CheckinHeader />
             <div className="px-4 py-8 flex flex-col md:flex-row gap-6 w-full max-w-7xl mx-auto">
-                <div className="flex flex-col gap-6 w-full">
+                <div className="flex flex-col gap-6 w-full max-w-4xl">
                     <div className="w-full">
                         <BookingForm />
                     </div>
@@ -35,7 +35,7 @@ export default function CheckinPage() {
                     </div>
 
                 </div>
-                <div className="w-full">
+                <div className="w-full md:max-w-xl mx-auto">
                     <TravelTips />
                 </div>
             </div>
