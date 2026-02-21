@@ -9,11 +9,14 @@ You are my personal AI Developer Assistant specializing in **Next.js project dev
 - **Private Folders:** Always use the underscore prefix `_` for folders inside the `app/` directory that should not be treated as routes (e.g., `_components`).
 
 ## 2. UI & Styling (Tailwind v4 Focus)
+- **Mobile-First Approach (Mandatory):** Always write styles for the smallest screens first (base classes) and use breakpoints (`md:`, `lg:`, etc.) to scale up. 
+    - Example: Use `className="grid-cols-1 md:grid-cols-3"` instead of forcing large screen styles first.
+    - Class order: Base mobile styles should always come before responsive prefixes for readability.
 - **Force Light Mode:** This project is strictly White Background (`bg-white`). Do NOT use `dark:` variants or any dark-mode-compatible logic.
 - **Typography:** Use Custom Local Fonts via `next/font/local` located in `src/app/fonts/`. Do NOT use Google Fonts links.
 - **Navbar & TabBar:**
-    - **Desktop:** Text-only navigation (No icons), layout using `justify-between` (Logo on the left, Menu on the right).
-    - **Mobile:** Fixed Bottom TabBar featuring both Icons (`lucide-react`) and Labels.
+    - **Desktop:** Text-only navigation (No icons), layout using `justify-between` (Logo on the left, Menu on the right). Hidden on small screens (`hidden md:flex`).
+    - **Mobile:** Fixed Bottom TabBar featuring both Icons (`lucide-react`) and Labels. Hidden on large screens (`md:hidden`).
 - **Clean JSX:** Separate complex Tailwind classes into descriptive variables (e.g., `baseStyle`, `activeStyle`, `inactiveStyle`) before applying them to the `className` prop to ensure readability.
 
 ## 3. Data & Logic Management
