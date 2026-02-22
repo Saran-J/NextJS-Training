@@ -4,7 +4,7 @@ import TravelTipItem from './TravelTipItem';
 
 export default function TravelTips() {
     return (
-        <div className="flex flex-col gap-4 p-6 rounded-2xl bg-white shadow-lg shadow-[rgba(0,0,0,0.1)] w-full mx-auto mt-6">
+        <div className="flex flex-col gap-4 p-6 rounded-2xl bg-white shadow-lg border-1 border-border-secondary shadow-[rgba(0,0,0,0.1)] w-full mx-auto mt-6">
             <div className="flex items-center gap-2">
                 <MapPin className="w-6 h-6 text-gray-800" />
                 <h3 className="text-lg font-bold text-gray-800">

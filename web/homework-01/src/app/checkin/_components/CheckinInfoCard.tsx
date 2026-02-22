@@ -18,7 +18,7 @@ export default function CheckinInfoCard({
     linkHref = '#',
 }: CheckinInfoCardProps) {
     return (
-        <div className="flex flex-col gap-4 p-6 rounded-2xl bg-white shadow-lg shadow-[rgba(0,0,0,0.1)] w-full mx-auto mt-6">
+        <div className="flex flex-col gap-4 p-6 rounded-2xl bg-white shadow-lg shadow-[rgba(0,0,0,0.1)] w-full h-full mx-auto mt-6">
             <div className="flex items-center gap-2">
                 {Icon && <Icon className="w-6 h-6 text-gray-800" />}
                 <h3 className="text-lg font-bold text-gray-800">
@@ -30,7 +30,7 @@ export default function CheckinInfoCard({
                 {description}
             </p>
 
-            <Link href={linkHref} className="flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium self-start">
+            <Link href={linkHref} className="flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-bold self-start">
                 <span>{linkText}</span>
                 <ArrowRight className="w-4 h-4" />
             </Link>
