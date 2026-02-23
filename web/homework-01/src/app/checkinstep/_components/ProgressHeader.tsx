@@ -3,19 +3,10 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
+import { useStep } from '../context/StepProvider';
 
 export default function ProgressHeader() {
-    const pathname = usePathname();
-
-    // Simple logic to parse step from pathname (e.g. /checkinstep/step2)
-    let currentStep = 1;
-    if (pathname.includes('/step')) {
-        const stepMatch = pathname.match(/step(\d)/);
-        if (stepMatch && stepMatch[1]) {
-            currentStep = parseInt(stepMatch[1], 10);
-        }
-    }
-
+    const { step: currentStep } = useStep();
     const totalSteps = 5;
 
     return (
