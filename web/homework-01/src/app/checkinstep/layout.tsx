@@ -34,13 +34,21 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
             </main>
 
             {/* Sticky Footer */}
-            <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 z-10">
+            <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 z-10 flex flex-col gap-2">
+                {step === 4 && (
+                    <div className="max-w-4xl mx-auto w-full text-center">
+                        <span className="text-[14px] text-gray-500 font-medium">I understand and accept the dangerous policy</span>
+                    </div>
+                )}
                 <div className="max-w-4xl mx-auto w-full flex gap-4">
-                    <Link href={backHref} className="flex-1 py-3 px-6 rounded-lg font-bold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 flex items-center justify-center transition-colors">
+                    <Link href={backHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''}`}>
                         Back
                     </Link>
-                    <Link href={continueHref} className="flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors">
-                        Continue
+                    <Link href={continueHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''}`}>
+                        {step === 4 ? 'Accept & Continue' : 'Continue'}
+                    </Link>
+                    <Link href={backHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? '' : 'hidden'}`}>
+                        Done
                     </Link>
                 </div>
             </div>
