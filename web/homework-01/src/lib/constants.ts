@@ -8,7 +8,7 @@ export const NAV_ITEMS = [
     },
     {
         label: "Flights",
-        href: "/main/Flights",
+        href: "/main/flights",
         icon: FlashlightIcon
     },
     {
@@ -18,12 +18,12 @@ export const NAV_ITEMS = [
     },
     {
         label: "Manage Booking",
-        href: "/main/Manage Booking",
+        href: "/main/managebooking",
         icon: BookAIcon
     },
     {
         label: "Contact",
-        href: "/main/Contact",
+        href: "/main/contact",
         icon: Mail
     },
 ];
