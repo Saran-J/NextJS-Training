@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/Navbar";
-import "./globals.css";
+import "./globals.css"; // มั่นใจว่ายังดึง CSS หลักมาใช้อยู่
 
+// Metadata ช่วยเรื่อง SEO (ชื่อเว็บที่แสดงบน Tab)
 export const metadata: Metadata = {
-  title: "NextJS Training",
-  description: "Homework 01",
+    title: "My Airline App",
+    description: "Check-in and Booking System",
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className="antialiased font-sans">
-        <Navbar />
-        <main>
-          {children}
-        </main>
-      </body>
-    </html>
-  );
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body className="antialiased">
+                {/* ไม่ต้องใส่ Header/Footer ตรงนี้แล้ว */}
+                {children}
+            </body>
+        </html>
+    );
 }

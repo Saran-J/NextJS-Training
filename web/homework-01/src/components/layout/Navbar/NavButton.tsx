@@ -17,7 +17,7 @@ export default function NavButton({ title, isActive = false, href }: NavButtonPr
     const inactiveStyle = "text-black no-underline";
     return (
         <Link
-            href={href}
+            href={`/main/${href}`}
             className={`px-4 py-2 font-medium transition-colors ${isActive ? activeStyle : inactiveStyle}
                 }`}
         >
