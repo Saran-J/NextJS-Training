@@ -1,31 +1,25 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Check } from 'lucide-react';
 
 export interface PassengerBoxProps {
     name: string;
     type: string;
     seat: string;
-    initialSelected?: boolean;
-    onSelectChange?: (name: string, isSelected: boolean) => void;
+    isSelected: boolean;
+    onSelectChange: (name: string, isSelected: boolean) => void;
 }
 
 export default function PassengerBox({
     name,
     type,
     seat,
-    initialSelected = false,
+    isSelected,
     onSelectChange,
 }: PassengerBoxProps) {
-    const [isSelected, setIsSelected] = useState(initialSelected);
-
     const toggleSelection = () => {
-        const newState = !isSelected;
-        setIsSelected(newState);
-        if (onSelectChange) {
-            onSelectChange(name, newState);
-        }
+        onSelectChange(name, !isSelected);
     };
 
     return (

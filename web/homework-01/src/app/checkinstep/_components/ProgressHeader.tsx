@@ -37,17 +37,21 @@ export default function ProgressHeader() {
             </div>
 
             {/* Progress Bar Container */}
-            <div className="w-full h-1 bg-gray-100 flex max-w-4xl mx-auto">
+            <div className="w-full h-1 flex max-w-4xl mx-auto gap-[2px]">
                 {Array.from({ length: totalSteps }).map((_, index) => {
                     const stepNumber = index + 1;
-                    const isActive = stepNumber <= currentStep;
+                    let bgClass = "bg-gray-100"; // default for future steps
+
+                    if (stepNumber <= currentStep) {
+                        bgClass = "bg-primary";
+                    } else if (stepNumber === currentStep + 1) {
+                        bgClass = "bg-gradient-to-r from-primary/60 to-gray-100";
+                    }
 
                     return (
                         <div
                             key={stepNumber}
-                            className={`h-full flex-1 ${isActive ? 'bg-primary' : 'bg-transparent'}`}
-                            // Make right edge rounded only for the end of active progress segment
-                            style={stepNumber === currentStep ? { borderTopRightRadius: '999px', borderBottomRightRadius: '999px' } : {}}
+                            className={`h-full flex-1 ${bgClass}`}
                         />
                     );
                 })}
