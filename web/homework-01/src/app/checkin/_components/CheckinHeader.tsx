@@ -7,7 +7,7 @@ export default function CheckinHeader() {
                 Online Check-in
             </h1>
             <h2 className="text-[16px] font-medium mb-1">
-                Fly Smart, Fly Next.
+                Fly Smart, Fly Paotang Airline.
             </h2>
             <p className="text-[12px] opacity-90">
                 check in online and save time at the airport

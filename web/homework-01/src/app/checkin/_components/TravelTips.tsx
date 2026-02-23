@@ -4,7 +4,7 @@ import TravelTipItem from './TravelTipItem';
 
 export default function TravelTips() {
     return (
-        <div className="flex flex-col gap-4 p-6 rounded-2xl bg-white shadow-lg border-1 border-border-secondary shadow-[rgba(0,0,0,0.1)] w-full mx-auto mt-6">
+        <div className="flex flex-col gap-4 p-6 rounded-2xl bg-secondary border-1 border-border-primary shadow-lg shadow-[rgba(0,0,0,0.1)] w-full mx-auto mt-6">
             <div className="flex items-center gap-2">
                 <MapPin className="w-6 h-6 text-gray-800" />
                 <h3 className="text-lg font-bold text-gray-800">
@@ -33,6 +33,15 @@ export default function TravelTips() {
                     title="Stay Informed"
                     description="Check visa requirements and travel advisories for your destination."
                 />
+            </div>
+
+            <div className="mt-4 p-4 border border-[#bde0fe] rounded-xl flex flex-col items-center justify-center text-center bg-white">
+                <p className="text-[#64748b] font-medium text-sm md:text-base mb-1">
+                    Need help? Contact our 24/7 support team
+                </p>
+                <p className="text-[#007cc3] font-bold text-lg md:text-xl">
+                    +1-800-PAOTANG
+                </p>
             </div>
         </div>
     );

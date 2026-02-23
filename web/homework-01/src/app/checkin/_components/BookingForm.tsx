@@ -11,7 +11,7 @@ export default function BookingForm() {
     const isFormValid = lastName.trim() !== '' && pnr.trim().length >= 5;
 
     return (
-        <div className="flex flex-col gap-6 p-6 rounded-2xl border-1 border-border-secondary bg-white w-full mx-auto mt-6 shadow-lg shadow-[rgba(0,0,0,0.1)]">
+        <div className="flex flex-col gap-6 p-6 rounded-2xl border-1 border-border-primary bg-white w-full mx-auto mt-6 shadow-lg shadow-[rgba(0,0,0,0.1)]">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 text-center">
                 Retrieve Your Booking
             </h2>
@@ -40,6 +40,15 @@ export default function BookingForm() {
                     className="w-full"
                     isActive={isFormValid}
                 />
+            </div>
+
+            <div
+                className="bg-[#e3f2fd] w-full p-4 flex items-center"
+                style={{ borderRadius: '16px' }}
+            >
+                <label className="text-primary text-[12px]">
+                    <span className="font-semibold text-blue-800">Tip:</span> Online check-in open 24 hours before departure and close 2 hours before departure.
+                </label>
             </div>
         </div>
     );

@@ -6,7 +6,10 @@
   --button-primary: #3c85be;
   --button-primary-light: #8ab5d9;
   --primary: #4091d0;
+  --secondary: #f6fafd;
+  --border-primary: #e3f2fd;
   --border-secondary: #e3f2fd;
+
 }
 
 @theme inline {
@@ -15,6 +18,8 @@
   --color-button-primary: var(--button-primary);
   --color-button-primary-light: var(--button-primary-light);
   --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-border-primary: var(--border-primary);
   --color-border-secondary: var(--border-secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
