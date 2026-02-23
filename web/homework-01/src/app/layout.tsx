@@ -14,8 +14,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="antialiased">
-                {/* ไม่ต้องใส่ Header/Footer ตรงนี้แล้ว */}
+            <body className="antialiased font-sans">
                 {children}
             </body>
         </html>
