@@ -40,7 +40,7 @@ export default function TravelTips() {
                     Need help? Contact our 24/7 support team
                 </p>
                 <p className="text-[#007cc3] font-bold text-lg md:text-xl">
-                    +1-800-PAOTANG
+                    +1-800-NEXT
                 </p>
             </div>
         </div>
