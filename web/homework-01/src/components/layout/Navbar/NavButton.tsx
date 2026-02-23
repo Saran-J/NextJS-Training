@@ -12,14 +12,12 @@ export interface NavButtonProps {
 }
 
 export default function NavButton({ title, isActive = false, href }: NavButtonProps) {
-
-    const activeStyle = "text-blue-600 underline underline-offset-4";
+    const activeStyle = "text-[#3a83c1] underline underline-offset-4";
     const inactiveStyle = "text-black no-underline";
     return (
         <Link
-            href={`/main/${href}`}
-            className={`px-4 py-2 font-medium transition-colors ${isActive ? activeStyle : inactiveStyle}
-                }`}
+            href={href}
+            className={`px-4 py-2 font-semibold transition-colors ${isActive ? activeStyle : inactiveStyle}`}
         >
             {title}
         </Link>

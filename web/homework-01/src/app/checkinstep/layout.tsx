@@ -23,7 +23,7 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
         setStep(currentStep);
     }, [pathname, setStep]);
 
-    const backHref = step > 1 ? `/checkinstep/step${step - 1}` : '/main/checkin';
+    const backHref = step > 2 ? `/checkinstep/step${step - 1}` : '/main/checkin';
     const continueHref = step < 5 ? `/checkinstep/step${step + 1}` : `/main/checkin/success`;
 
     return (

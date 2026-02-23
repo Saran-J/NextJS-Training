@@ -9,6 +9,17 @@ export default function ProgressHeader() {
     const { step: currentStep } = useStep();
     const totalSteps = 5;
 
+    const getStepTitle = (step: number): string => {
+        switch (step) {
+            case 1:
+            case 2: return 'Select Passengers';
+            case 3: return 'Passenger Detail';
+            case 4: return 'Dangerous Goods';
+            case 5: return 'Boarding Pass';
+            default: return 'Check-in';
+        }
+    };
+
     return (
         <div className="w-full bg-white shadow-sm border-b border-border-secondary">
             <div className="max-w-4xl mx-auto w-full px-4 py-4 flex items-center justify-between">
@@ -18,7 +29,7 @@ export default function ProgressHeader() {
                     </button>
                     <div className="flex flex-col">
                         <h1 className="text-gray-900 font-bold text-lg">Check-in</h1>
-                        <p className="text-gray-500 text-sm">Select Passengers</p>
+                        <p className="text-gray-500 text-sm"> {getStepTitle(currentStep)}</p>
                     </div>
                 </div>
 

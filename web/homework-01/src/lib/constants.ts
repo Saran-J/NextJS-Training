@@ -3,27 +3,27 @@ import { Home, Info, Briefcase, Mail, FlashlightIcon, CheckIcon, BookAIcon } fro
 export const NAV_ITEMS = [
     {
         label: "Home",
-        href: "/",
+        href: "/main",
         icon: Home
     },
     {
         label: "Flights",
-        href: "/Flights",
+        href: "/main/Flights",
         icon: FlashlightIcon
     },
     {
         label: "Check-in",
-        href: "/checkin",
+        href: "/main/checkin",
         icon: CheckIcon
     },
     {
         label: "Manage Booking",
-        href: "/Manage Booking",
+        href: "/main/Manage Booking",
         icon: BookAIcon
     },
     {
         label: "Contact",
-        href: "/Contact",
+        href: "/main/Contact",
         icon: Mail
     },
 ];
