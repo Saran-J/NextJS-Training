@@ -1,14 +1,14 @@
 "use client";
 
 import React from 'react';
-import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { useStep } from '../context/StepProvider';
+import { useRouter } from 'next/navigation';
 
 export default function ProgressHeader() {
     const { step: currentStep } = useStep();
     const totalSteps = 5;
-
+    const router = useRouter();
     const getStepTitle = (step: number): string => {
         switch (step) {
             case 1:
@@ -20,11 +20,16 @@ export default function ProgressHeader() {
         }
     };
 
+    const handleXButton = () => {
+        router.push('/main/checkin');
+    };
+
+
     return (
         <div className="w-full bg-white shadow-sm border-b border-border-secondary">
             <div className="max-w-4xl mx-auto w-full px-4 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                    <button className="p-2 -ml-2 text-gray-400 hover:text-gray-600 cursor-pointer">
+                    <button className="p-2 -ml-2 text-gray-400 hover:text-gray-600 cursor-pointer" onClick={handleXButton}>
                         <X className="w-5 h-5" />
                     </button>
                     <div className="flex flex-col">
