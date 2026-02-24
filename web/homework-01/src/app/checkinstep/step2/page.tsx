@@ -1,32 +1,36 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Check } from 'lucide-react';
 import PassengerBox from '../_components/PassengerBox';
+import { useStep, Passenger } from '../context/StepProvider';
 
-const PASSENGERS = [
+const PASSENGERS: Passenger[] = [
     { name: "ALEX HUUM", type: "ADT", seat: "12A" },
     { name: "Somsee Kuum", type: "ADT", seat: "12B" },
 ];
 
 export default function Step2Page() {
-    const [selectedNames, setSelectedNames] = useState<string[]>(['ALEX HUUM']);
+    const { selectedPassengers, setSelectedPassengers } = useStep();
 
     const handleSelectChange = (name: string, isSelected: boolean) => {
         if (isSelected) {
-            setSelectedNames((prev) => [...prev, name]);
+            const passenger = PASSENGERS.find((p) => p.name === name);
+            if (passenger) {
+                setSelectedPassengers([...selectedPassengers, passenger]);
+            }
         } else {
-            setSelectedNames((prev) => prev.filter((n) => n !== name));
+            setSelectedPassengers(selectedPassengers.filter((p) => p.name !== name));
         }
     };
 
-    const isAllSelected = selectedNames.length === PASSENGERS.length;
+    const isAllSelected = selectedPassengers.length === PASSENGERS.length;
 
     const toggleSelectAll = () => {
         if (isAllSelected) {
-            setSelectedNames([]);
+            setSelectedPassengers([]);
         } else {
-            setSelectedNames(PASSENGERS.map((p) => p.name));
+            setSelectedPassengers([...PASSENGERS]);
         }
     };
 
@@ -49,7 +53,7 @@ export default function Step2Page() {
                             name={passenger.name}
                             type={passenger.type}
                             seat={passenger.seat}
-                            isSelected={selectedNames.includes(passenger.name)}
+                            isSelected={selectedPassengers.some((p) => p.name === passenger.name)}
                             onSelectChange={handleSelectChange}
                         />
                     ))}

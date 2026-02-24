@@ -2,30 +2,28 @@
 
 import React, { useState } from 'react';
 import PassengerInfoCard, { PassengerInfoData } from '../_components/PassengerInfoCard';
-
-const PASSENGERS_MOCK = [
-    { id: 'p1', name: "ALEX HUUM", initialNationality: "TH", initialPhoneDial: "TH", initialPhone: "811234567" },
-    { id: 'p2', name: "Somsee Kuum", initialNationality: "US", initialPhoneDial: "US", initialPhone: "5551234567" },
-];
+import { useStep } from '../context/StepProvider';
 
 export default function Step3Page() {
+    const { selectedPassengers } = useStep();
+
     // State to hold form data for all passengers
     const [passengersData, setPassengersData] = useState<Record<string, PassengerInfoData>>(() => {
         const initialData: Record<string, PassengerInfoData> = {};
-        PASSENGERS_MOCK.forEach(p => {
-            initialData[p.id] = {
-                nationality: p.initialNationality,
-                phoneCountryCode: p.initialPhoneDial,
-                phoneNumber: p.initialPhone,
+        selectedPassengers.forEach(p => {
+            initialData[p.name] = {
+                nationality: '',
+                phoneCountryCode: 'TH',
+                phoneNumber: '',
             };
         });
         return initialData;
     });
 
-    const handlePassengerDataChange = (id: string, data: PassengerInfoData) => {
+    const handlePassengerDataChange = (name: string, data: PassengerInfoData) => {
         setPassengersData(prev => ({
             ...prev,
-            [id]: data
+            [name]: data
         }));
     };
 
@@ -41,13 +39,13 @@ export default function Step3Page() {
             </div>
 
             <div className="flex flex-col gap-4">
-                {PASSENGERS_MOCK.map((passenger, index) => (
+                {selectedPassengers.map((passenger, index) => (
                     <PassengerInfoCard
-                        key={passenger.id}
+                        key={passenger.name}
                         index={index + 1}
                         name={passenger.name}
-                        data={passengersData[passenger.id]}
-                        onChange={(newData) => handlePassengerDataChange(passenger.id, newData)}
+                        data={passengersData[passenger.name] || { nationality: '', phoneCountryCode: 'TH', phoneNumber: '' }}
+                        onChange={(newData) => handlePassengerDataChange(passenger.name, newData)}
                     />
                 ))}
             </div>

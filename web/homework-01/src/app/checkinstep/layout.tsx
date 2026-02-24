@@ -8,7 +8,7 @@ import ProgressHeader from './_components/ProgressHeader';
 import { StepProvider, useStep } from './context/StepProvider';
 
 function StepLayoutInner({ children }: { children: React.ReactNode }) {
-    const { step, setStep } = useStep();
+    const { step, setStep, selectedPassengers } = useStep();
     const pathname = usePathname();
 
     // Sync step from URL to Context
@@ -25,6 +25,7 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
 
     const backHref = step > 2 ? `/checkinstep/step${step - 1}` : '/main/checkin';
     const continueHref = step < 5 ? `/checkinstep/step${step + 1}` : `/main/checkin/success`;
+    const isContinueDisabled = step === 2 && selectedPassengers.length === 0;
 
     return (
         <div className="min-h-screen bg-secondary w-full relative pb-28">
@@ -44,7 +45,7 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
                     <Link href={backHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''}`}>
                         Back
                     </Link>
-                    <Link href={continueHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''}`}>
+                    <Link href={isContinueDisabled ? '#' : continueHref} onClick={(e) => { if (isContinueDisabled) e.preventDefault(); }} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''} ${isContinueDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/90'}`}>
                         {step === 4 ? 'Accept & Continue' : 'Continue'}
                     </Link>
                     <Link href={backHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? '' : 'hidden'}`}>

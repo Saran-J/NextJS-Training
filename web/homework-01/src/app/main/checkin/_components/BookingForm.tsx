@@ -1,14 +1,22 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import CommonTextfield from '@/components/common/CommonTextfield';
 import Button from '@/components/common/Button';
 
 export default function BookingForm() {
+    const router = useRouter();
     const [lastName, setLastName] = useState('');
     const [pnr, setPnr] = useState('');
 
     const isFormValid = lastName.trim() !== '' && pnr.trim().length >= 5;
+
+    const handleRetrieveBooking = () => {
+        if (isFormValid) {
+            router.push('/checkinstep/step2');
+        }
+    };
 
     return (
         <div className="flex flex-col gap-6 p-6 rounded-2xl border-1 border-border-primary bg-white w-full mx-auto mt-6 shadow-lg shadow-[rgba(0,0,0,0.1)]">
@@ -39,6 +47,7 @@ export default function BookingForm() {
                     buttonTitle="Retrieve Booking"
                     className="w-full"
                     isActive={isFormValid}
+                    onClick={handleRetrieveBooking}
                 />
             </div>
 
