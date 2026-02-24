@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import Barcode from 'react-barcode';
-import Button from '@/components/common/Button';
 
 export interface BoardingPassTicketProps {
     passengerName: string;
@@ -48,7 +48,6 @@ export default function BoardingPassTicket({
             {/* Header (Blue) */}
             <div className="bg-primary px-6 py-4 flex justify-between items-center text-white">
                 <div className="flex items-center gap-2 font-bold text-xl">
-                    {/* Simple plane icon SVG */}
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 4-2.5 2.5H4l-2 2h3l2-2h2.5L10 15l4 6l1.2-.7c.4-.2.7-.6.6-1.1z" />
                     </svg>
@@ -159,20 +158,18 @@ export default function BoardingPassTicket({
                 <span className="text-xs text-center text-gray-500 font-medium">Scan at security and boarding gate</span>
 
                 {/* Apple Wallet Button */}
-                <Button
-                    buttonTitle="Add to Apple Wallet"
-                    isActive={true}
-                    activeBgClass="bg-black hover:bg-gray-800"
-                    className="w-full py-4 flex items-center justify-center gap-3 text-lg font-bold min-h-[60px]"
-                    roundCorner={12}
+                <button
+                    className="w-full py-4 flex items-center justify-center gap-3 text-lg font-bold min-h-[60px] bg-black hover:bg-gray-800 text-white transition-all cursor-pointer shadow-sm"
+                    style={{ borderRadius: '12px' }}
                 >
-                    {/* CSS trick for Apple Wallet Icon */}
-                    <div className="relative w-8 h-5 rounded-md overflow-hidden border border-white/20 mr-2 flex flex-col justify-end pb-1" style={{
-                        background: 'linear-gradient(135deg, #FF3B30 0%, #FF9500 30%, #4CD964 60%, #007AFF 100%)'
-                    }}>
-                        <div className="w-[80%] mx-auto h-[2px] bg-white rounded-full"></div>
-                    </div>
-                </Button>
+                    <Image
+                        src="/apple_wallet.png"
+                        alt="Apple Wallet"
+                        width={28}
+                        height={28}
+                    />
+                    Add to Apple Wallet
+                </button>
             </div>
         </div>
     );

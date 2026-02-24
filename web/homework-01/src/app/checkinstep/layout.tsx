@@ -8,7 +8,7 @@ import ProgressHeader from './_components/ProgressHeader';
 import { StepProvider, useStep } from './context/StepProvider';
 
 function StepLayoutInner({ children }: { children: React.ReactNode }) {
-    const { step, setStep, selectedPassengers } = useStep();
+    const { step, setStep, selectedPassengers, canContinue } = useStep();
     const pathname = usePathname();
 
     // Sync step from URL to Context
@@ -25,7 +25,9 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
 
     const backHref = step > 2 ? `/checkinstep/step${step - 1}` : '/main/checkin';
     const continueHref = step < 5 ? `/checkinstep/step${step + 1}` : `/main/checkin/success`;
-    const isContinueDisabled = step === 2 && selectedPassengers.length === 0;
+    const isContinueDisabled =
+        (step === 2 && selectedPassengers.length === 0) ||
+        (step === 3 && !canContinue);
 
     return (
         <div className="min-h-screen bg-secondary w-full relative pb-28">

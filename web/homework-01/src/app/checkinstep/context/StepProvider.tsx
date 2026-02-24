@@ -13,6 +13,8 @@ interface StepContextType {
     setStep: (s: number) => void;
     selectedPassengers: Passenger[];
     setSelectedPassengers: (passengers: Passenger[]) => void;
+    canContinue: boolean;
+    setCanContinue: (v: boolean) => void;
 }
 
 const StepContext = createContext<StepContextType>({
@@ -20,13 +22,16 @@ const StepContext = createContext<StepContextType>({
     setStep: () => { },
     selectedPassengers: [],
     setSelectedPassengers: () => { },
+    canContinue: true,
+    setCanContinue: () => { },
 });
 
 export function StepProvider({ children }: { children: React.ReactNode }) {
     const [step, setStep] = useState(1);
     const [selectedPassengers, setSelectedPassengers] = useState<Passenger[]>([]);
+    const [canContinue, setCanContinue] = useState(true);
     return (
-        <StepContext.Provider value={{ step, setStep, selectedPassengers, setSelectedPassengers }}>
+        <StepContext.Provider value={{ step, setStep, selectedPassengers, setSelectedPassengers, canContinue, setCanContinue }}>
             {children}
         </StepContext.Provider>
     );

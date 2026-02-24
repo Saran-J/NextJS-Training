@@ -23,6 +23,7 @@ export interface PhoneInputProps {
     countryCode?: string;
     onCountryCodeChange?: (code: string) => void;
     id?: string;
+    hasError?: boolean;
 }
 
 export default function PhoneInput({
@@ -31,6 +32,7 @@ export default function PhoneInput({
     countryCode = "TH",
     onCountryCodeChange,
     id,
+    hasError = false,
 }: PhoneInputProps) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -93,7 +95,10 @@ export default function PhoneInput({
                     type="tel"
                     value={value}
                     onChange={(e) => onChange?.(e.target.value)}
-                    className="flex-1 h-12 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-gray-900 text-base"
+                    className={`flex-1 h-12 px-4 border rounded-lg focus:outline-none focus:ring-2 transition-all text-gray-900 text-base ${hasError
+                            ? 'border-red-400 focus:ring-red-200 focus:border-red-400'
+                            : 'border-gray-300 focus:ring-primary/20 focus:border-primary'
+                        }`}
                     placeholder="Enter phone number"
                 />
             </div>

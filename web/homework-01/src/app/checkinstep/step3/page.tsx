@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
-import PassengerInfoCard, { PassengerInfoData } from '../_components/PassengerInfoCard';
+import React, { useState, useEffect } from 'react';
+import PassengerInfoCard, { PassengerInfoData, isNationalityValid, isPhoneValid } from '../_components/PassengerInfoCard';
 import { useStep } from '../context/StepProvider';
 
 export default function Step3Page() {
-    const { selectedPassengers } = useStep();
+    const { selectedPassengers, setCanContinue } = useStep();
 
     // State to hold form data for all passengers
     const [passengersData, setPassengersData] = useState<Record<string, PassengerInfoData>>(() => {
@@ -19,6 +19,17 @@ export default function Step3Page() {
         });
         return initialData;
     });
+
+    // Compute overall validation and sync to context
+    useEffect(() => {
+        const allValid = selectedPassengers.every(p => {
+            const d = passengersData[p.name];
+            if (!d) return false;
+            return isNationalityValid(d.nationality) && isPhoneValid(d.phoneNumber);
+        });
+        setCanContinue(allValid);
+        return () => setCanContinue(true); // reset when leaving step3
+    }, [passengersData, selectedPassengers, setCanContinue]);
 
     const handlePassengerDataChange = (name: string, data: PassengerInfoData) => {
         setPassengersData(prev => ({
