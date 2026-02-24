@@ -25,6 +25,7 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
 
     const backHref = step > 2 ? `/checkinstep/step${step - 1}` : '/main/checkin';
     const continueHref = step < 5 ? `/checkinstep/step${step + 1}` : `/main/checkin/success`;
+    const completeHref = `/main/checkin`
     const isContinueDisabled =
         (step === 2 && selectedPassengers.length === 0) ||
         (step === 3 && !canContinue);
@@ -50,7 +51,7 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
                     <Link href={isContinueDisabled ? '#' : continueHref} onClick={(e) => { if (isContinueDisabled) e.preventDefault(); }} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''} ${isContinueDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/90'}`}>
                         {step === 4 ? 'Accept & Continue' : 'Continue'}
                     </Link>
-                    <Link href={backHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? '' : 'hidden'}`}>
+                    <Link href={completeHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? '' : 'hidden'}`}>
                         Done
                     </Link>
                 </div>
