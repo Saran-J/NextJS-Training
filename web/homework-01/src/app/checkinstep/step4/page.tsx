@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Step4Page() {
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-border-secondary w-full max-w-4xl mx-auto overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-lg shadow-[rgba(0,0,0,0.1)] border border-border-secondary w-full max-w-4xl mx-auto overflow-hidden">
             {/* Header Section */}
             <div className="p-6 border-b border-gray-100">
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">

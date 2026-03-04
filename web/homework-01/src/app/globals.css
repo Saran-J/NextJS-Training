@@ -9,6 +9,8 @@
   --secondary: #f6fafd;
   --border-primary: #e3f2fd;
   --border-secondary: #e3f2fd;
+  --link-primary: #4091d0;
+  --link-secondary: #68a6c0;
 
 }
 
@@ -21,6 +23,8 @@
   --color-secondary: var(--secondary);
   --color-border-primary: var(--border-primary);
   --color-border-secondary: var(--border-secondary);
+  --color-link-primary: var(--link-primary);
+  --color-link-secondary: var(--link-secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

@@ -56,7 +56,7 @@ export default function BookingForm() {
                 style={{ borderRadius: '16px' }}
             >
                 <label className="text-primary text-[12px]">
-                    <span className="font-semibold text-blue-800">Tip:</span> Online check-in open 24 hours before departure and close 2 hours before departure.
+                    <span className="font-semibold text-[#2d679d]">Tip:</span> Online check-in open 24 hours before departure and close 2 hours before departure.
                 </label>
             </div>
         </div>

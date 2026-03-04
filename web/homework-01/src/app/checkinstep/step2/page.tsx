@@ -36,7 +36,7 @@ export default function Step2Page() {
 
     return (
         <div className="flex flex-col gap-6">
-            <div className="bg-white rounded-2xl shadow-sm border border-border-secondary p-6 w-full max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg shadow-[rgba(0,0,0,0.1)] border border-border-secondary p-6 w-full max-w-4xl mx-auto">
                 <div className="mb-6">
                     <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">
                         Select Passengers

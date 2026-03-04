@@ -44,7 +44,7 @@ export default function BoardingPassTicket({
     barcodeValue,
 }: BoardingPassTicketProps) {
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-border-secondary overflow-hidden flex flex-col w-full">
+        <div className="bg-white rounded-2xl shadow-lg shadow-[rgba(0,0,0,0.1)] border border-border-secondary overflow-hidden flex flex-col w-full">
             {/* Header (Blue) */}
             <div className="bg-primary px-6 py-4 flex justify-between items-center text-white">
                 <div className="flex items-center gap-2 font-bold text-xl">
