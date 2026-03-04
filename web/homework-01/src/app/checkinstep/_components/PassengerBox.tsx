@@ -46,8 +46,11 @@ export default function PassengerBox({
 
             {/* Selected Checkmark Triangle */}
             {isSelected && (
-                <div className="absolute top-0 right-0 w-8 h-8 bg-primary rounded-bl-3xl flex items-start justify-end p-1">
-                    <Check className="w-4 h-4 text-white p-0.5 mr-0.5 mt-0.5" />
+                <div
+                    className="absolute top-0 right-0 w-10 h-10 bg-primary flex items-start justify-end"
+                    style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
+                >
+                    <Check className="w-4 h-4 text-white mr-0.5 mt-0.5" />
                 </div>
             )}
         </div>
