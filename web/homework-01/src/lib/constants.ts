@@ -1,4 +1,4 @@
-import { Home, Info, Briefcase, Mail, FlashlightIcon, CheckIcon, BookAIcon } from "lucide-react";
+import { Home, Plane, CircleCheckBig, Luggage, Send } from "lucide-react";
 
 export const NAV_ITEMS = [
     {
@@ -9,21 +9,21 @@ export const NAV_ITEMS = [
     {
         label: "Flights",
         href: "/main/flights",
-        icon: FlashlightIcon
+        icon: Plane
     },
     {
         label: "Check-in",
         href: "/main/checkin",
-        icon: CheckIcon
+        icon: CircleCheckBig
     },
     {
         label: "Manage Booking",
         href: "/main/managebooking",
-        icon: BookAIcon
+        icon: Luggage
     },
     {
         label: "Contact",
         href: "/main/contact",
-        icon: Mail
+        icon: Send
     },
 ];

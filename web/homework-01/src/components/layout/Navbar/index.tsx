@@ -8,7 +8,7 @@ import { NAV_ITEMS } from "@/lib/constants";
 export default function Navbar() {
     const pathname = usePathname();
     return (
-        <nav className="flex items-center justify-between gap-2 h-16 px-6 relative z-10">
+        <nav className="hidden md:flex items-center justify-between gap-2 h-16 px-6 relative z-10">
             <div className="flex-shrink-0">
                 <Image
                     src="/next.svg"
