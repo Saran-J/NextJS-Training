@@ -31,7 +31,7 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
         (step === 3 && !canContinue);
 
     return (
-        <div className="min-h-screen bg-secondary w-full relative pb-28">
+        <div className="min-h-screen bg-secondary w-full relative pb-36">
             <ProgressHeader />
             <main className="max-w-4xl mx-auto w-full px-4 mt-6">
                 {children}
@@ -45,13 +45,13 @@ function StepLayoutInner({ children }: { children: React.ReactNode }) {
                     </div>
                 )}
                 <div className="max-w-4xl mx-auto w-full flex gap-4">
-                    <Link href={backHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''}`}>
+                    <Link href={backHref} className={`flex-1 h-12 px-4 md:px-6 rounded-lg font-bold text-sm md:text-base text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''}`}>
                         Back
                     </Link>
-                    <Link href={isContinueDisabled ? '#' : continueHref} onClick={(e) => { if (isContinueDisabled) e.preventDefault(); }} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''} ${isContinueDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/90'}`}>
+                    <Link href={isContinueDisabled ? '#' : continueHref} onClick={(e) => { if (isContinueDisabled) e.preventDefault(); }} className={`flex-1 h-12 px-4 md:px-6 rounded-lg font-bold text-sm md:text-base text-white bg-primary flex items-center justify-center transition-colors ${step === 5 ? 'hidden' : ''} ${isContinueDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/90'}`}>
                         {step === 4 ? 'Accept & Continue' : 'Continue'}
                     </Link>
-                    <Link href={completeHref} className={`flex-1 py-3 px-6 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? '' : 'hidden'}`}>
+                    <Link href={completeHref} className={`flex-1 h-12 px-4 md:px-6 rounded-lg font-bold text-sm md:text-base text-white bg-primary hover:bg-primary/90 flex items-center justify-center transition-colors ${step === 5 ? '' : 'hidden'}`}>
                         Done
                     </Link>
                 </div>
